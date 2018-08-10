@@ -35,19 +35,24 @@ class Jokes extends React.Component {
     this.props.history.push("/signup");
   };
 
+  refreshHandler = e => {
+      window.location.reload()
+  }
+
   render() {
     return (
       <div className="jokes">
         <h1 className="header-title"> Have some jokes!</h1>
-        <ul>
+        <button onClick={this.refreshHandler}>Want new jokes?</button>
+        <div className='joke-list'>
           {this.state.jokes.map(joke => (
             <div className="joke-card" key={joke.id}>
-              <p> type: {joke.type}</p>
+              <p> What type of joke? {joke.type}</p>
               <p> Setup: {joke.setup}</p>
               <p>Punchline: {joke.punchline}</p>
             </div>
           ))}
-        </ul>
+        </div>
         <div>
           {localStorage.getItem("jwt") && (
             <div>
