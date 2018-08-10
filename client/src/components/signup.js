@@ -12,6 +12,10 @@ class Signup extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleSignInPage = e => {
+    this.props.history.push("/signin");
+  };
+
   submitHandler = e => {
     e.preventDefault();
     axios
@@ -55,6 +59,8 @@ class Signup extends React.Component {
           <br/>
           <div>
             <button type="submit">Register</button>
+            <button onClick={this.handleSignInPage}>Sign In Instead</button>
+            
           </div>
         </form>
       </div>
